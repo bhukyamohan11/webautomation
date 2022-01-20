@@ -159,9 +159,9 @@ import org .openqa.selenium.TakesScreenshot;
 			
 			
 			
-		public void click(WebElement e) {
+		public void click(WebElement element) {
 			
-			e.click();
+			element.click();
 			
 		}
 
