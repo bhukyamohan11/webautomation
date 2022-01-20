@@ -29,16 +29,8 @@ Homepage home= new Homepage(driver);
 		public Object[][]readData() throws FileNotFoundException, IOException{
 			Object[][]testData=getExcelData(getProperty("excel"),"login");
 			
-			
-			return testData;
-			
-			
+			return testData;	
 		}
-		
-		
-		
-		
-		
 		
 	@Test(dataProvider="testdata")
 	public void bookingLogin(String first,String last,String mobilr,String city) throws FileNotFoundException, IOException {

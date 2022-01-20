@@ -8,7 +8,8 @@ package base;
 	import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
-	import java.util.Properties;
+import java.util.List;
+import java.util.Properties;
 	import java.util.Set;
 
 	import org.apache.commons.io.FileUtils;
@@ -62,6 +63,19 @@ import org .openqa.selenium.TakesScreenshot;
 					
 					
 				}
+				
+				public void printElementsText(List<WebElement>elements) {
+					
+					for(int i=0; i<10; i++) {
+						
+						System.out.println(elements.get(i).getText());
+					}
+						
+				}
+				
+				
+				
+				
 				
 				public static  String[][] getExcelData(String filename,String sheet) throws IOException{
 					FileInputStream fis= new FileInputStream(filename);
