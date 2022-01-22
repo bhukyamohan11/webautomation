@@ -275,6 +275,14 @@ import org .openqa.selenium.TakesScreenshot;
 			public void newMethod() {
 				System.out.println("Git demo");
 			}
+			public void masterMetho() {
+				System.out.println("master method");
+			}
+			
+			
+			
+			
+			
 
             @AfterTest(alwaysRun=true)
 			public void closeDriver() {
