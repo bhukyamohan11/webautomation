@@ -6,8 +6,9 @@
       <class name="testMethods.BirthdayTest">
         <methods>
           <include name="aftermethod"/>
+          <include name="setup"/>
           <include name="closeDriver"/>
-          <include name="bookingLogin"/>
+          <include name="bookingLogin" invocation-numbers="0"/>
         </methods>
       </class> <!-- testMethods.BirthdayTest -->
     </classes>

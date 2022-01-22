@@ -32,8 +32,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
-
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import org .openqa.selenium.TakesScreenshot;
 		public class BaseClass {
@@ -42,9 +45,13 @@ import org .openqa.selenium.TakesScreenshot;
 			
 			public static WebDriver driver;
 			public static WebDriverWait wait;
+			public static ExtentReports repoter;
+			public static ExtentTest Logger;
+			public static ExtentSparkReporter sparkReporter;
+			public static String filepath;
 			
 			static {
-          System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+          System.setProperty("webdriver.chrome.driver", "E:\\webautomation2\\src\\test\\resources\\drivers\\chromedriver.exe");
 				
           ChromeOptions options=new ChromeOptions();
           options.addArguments("start-maximized");
@@ -56,6 +63,17 @@ import org .openqa.selenium.TakesScreenshot;
 				driver = new ChromeDriver();	
 			
 			} 
+			@BeforeTest
+			public void setup() {
+				filepath= "Reports/statusReport.html";
+				sparkReporter = new ExtentSparkReporter(filepath);
+				repoter=new ExtentReports();
+				
+				repoter.attachReporter(sparkReporter);
+				
+			}
+			
+			
 			
 				public void scrollToElement(WebElement e) {
 					((JavascriptExecutor)driver).executeScript("arguments[0].ScrollIntoView(true);",e);
@@ -137,10 +155,11 @@ import org .openqa.selenium.TakesScreenshot;
 			public void aftermethod(ITestResult result) throws IOException {
 				if(ITestResult.FAILURE==result.getStatus()) {
 					screenShot("FAILURE",result.getName());
-					
+					Logger.fail("testcase"+result.getName()+"is faild !!!");
 				}
 				else {
 					screenShot("SUCESS",result.getName());
+					Logger.info("navigated to website"+driver.getTitle());
 				}
 				
 	
@@ -238,10 +257,15 @@ import org .openqa.selenium.TakesScreenshot;
 						
 				}
 				}
+			
+			public void newMethod() {
+				System.out.println("Git demo");
+			}
 
             @AfterTest(alwaysRun=true)
 			public void closeDriver() {
 				
+            	repoter.flush();
 				driver.close();
 			}
 			
