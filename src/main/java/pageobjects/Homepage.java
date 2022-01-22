@@ -16,7 +16,7 @@ package pageobjects;
 					
 				}
 				
-				@FindBy(xpath="//span[normalize-space()='Sign in']")
+			@FindBy(xpath="//span[normalize-space()='Sign in']")
 				public WebElement signIn;
 				
 				@FindBy(name="username")
@@ -24,18 +24,30 @@ package pageobjects;
 				
 				@FindBy(xpath="//button[@type='submit']")
 						public WebElement submitEmail;
-				
-				//@FindBy(xpath="//div[@id='username-note']")
-				//public WebElement invaildEmail;
+						
+//				@FindBy(xpath="//div[@id='username-note']")
+//				public WebElement invaildEmail;
 
 				@FindBy(className="password")
 				public WebElement password;
 						
 				
-
-			
-
-
+            @FindBy(xpath="//a[text()='Create New Account']")
+             public WebElement createAccount;
+		
+              @FindBy(xpath="//input[@name='firstname']")
+               public WebElement firstname;
+              
+              @FindBy(xpath="//input[@name='lastname']")
+              public WebElement lastname;
+              
+              
+              @FindBy(xpath="//input[@name='reg_email__']")
+              public WebElement email;
+              
+              
+              @FindBy(xpath="//input[@name='reg_passwd__']")
+              public WebElement fbpassword;
 	}
 
 
