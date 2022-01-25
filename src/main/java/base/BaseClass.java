@@ -12,6 +12,8 @@ import java.util.Date;
 	import java.util.Set;
 
 	import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.config.Loggers;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellBase;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -24,6 +26,7 @@ import org.openqa.selenium.JavascriptExecutor;
 		import org.openqa.selenium.WebElement;
 		import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v96.log.Log;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -49,7 +52,6 @@ import org .openqa.selenium.TakesScreenshot;
 			public static ExtentTest Logger;
 			public static ExtentSparkReporter sparkReporter;
 			public static String filepath;
-			
 			static {
           System.setProperty("webdriver.chrome.driver", "E:\\webautomation2\\src\\test\\resources\\drivers\\chromedriver.exe");
 				
@@ -181,7 +183,7 @@ import org .openqa.selenium.TakesScreenshot;
 		public void click(WebElement element) {
 			
 			element.click();
-			
+		
 		}
 
 		public void setvalue(WebElement e,String value)	{
