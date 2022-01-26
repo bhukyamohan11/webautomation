@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testMethods.BirthdayTest">
+      <class name="testmethods.BirthdayTest">
         <methods>
           <include name="aftermethod"/>
+          <include name="facebook" invocation-numbers="0"/>
           <include name="setup"/>
           <include name="closeDriver"/>
-          <include name="bookingLogin" invocation-numbers="0"/>
         </methods>
-      </class> <!-- testMethods.BirthdayTest -->
+      </class> <!-- testmethods.BirthdayTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -19,7 +19,7 @@ package pageobjects;
 			@FindBy(xpath="//span[normalize-space()='Sign in']")
 				public WebElement signIn;
 				
-				@FindBy(name="username")
+				 @FindBy(name="username")
 				public WebElement enterEmail;
 				
 				@FindBy(xpath="//button[@type='submit']")
