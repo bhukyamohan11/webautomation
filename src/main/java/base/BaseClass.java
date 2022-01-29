@@ -298,7 +298,9 @@ import org .openqa.selenium.TakesScreenshot;
 				System.out.println("master method");
 			}
 			
-			
+			public void mastermethod() {
+				
+			}
 			
 			
 			

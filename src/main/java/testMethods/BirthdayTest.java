@@ -9,7 +9,7 @@ import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.util.CellUtil;
-
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -26,7 +26,22 @@ Homepage home= new Homepage(driver);
 private static final org.apache.logging.log4j.Logger log =LogManager.getLogger(BirthdayTest.class);
 
 
-	//@Test
+ @DataProvider(name="testdata")
+ public Object[][] readData (Method m) throws FileNotFoundException, IOException {
+	Object[][]testdata=ExcelUtils.getDataFromExcel(getProperty("excel"), "login", "m .Method");
+	
+
+	return testdata;	
+}
+
+
+
+
+
+
+
+
+//     @Test(dataProvider="testdata",enabled=true)
 //	public void bookingLogin() throws FileNotFoundException, IOException {
 //		driver.get(getProperty("prod"));
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -34,16 +49,9 @@ private static final org.apache.logging.log4j.Logger log =LogManager.getLogger(B
 //		click(home.signIn);
 //		setvalue(home.enterEmail,"qwerty");
 //		click(home.submitEmail);
-//		Assert.assertEquals(home.invaildEmail.isDisplayed(), true);
-//		
-		@DataProvider(name="testdata")
-		public Object[][] readData (Method m) throws FileNotFoundException, IOException {
-			Object[][]testData=ExcelUtils.getDataFromExcel(getProperty("excel"),"login",m.getName());
-			
-
-			return testData;	
-		}
-			
+//		//Assert.assertEquals(home.invaildEmail.isDisplayed(), true);
+		
+     //}  	
 				
 		@Test(dataProvider="testdata")
 		public void facebook(HashMap<String,String>data) throws FileNotFoundException, IOException{
@@ -61,14 +69,14 @@ private static final org.apache.logging.log4j.Logger log =LogManager.getLogger(B
 		setvalue(home.lastname,data.get("last"));
 		setvalue(home.email,data.get("email"));
 		setvalue(home.fbpassword,data.get("password"));
-		//waitForElement(home.password);
+		
 		 log.debug("enterd account details");
 		
 		
 		}
 		
 
-	@Test(dataProvider="testdata",enabled=true)
+	@Test(dataProvider="testdata",enabled=false)
 	public void bookingLogin(HashMap<String,String>data) throws FileNotFoundException, IOException {
 		Logger=repoter.createTest("Booking website login");
 		driver.get(getProperty("prod"));
@@ -78,7 +86,7 @@ private static final org.apache.logging.log4j.Logger log =LogManager.getLogger(B
 		click(home.signIn);
 		setvalue(home.enterEmail,"bhukyamohan11@gmail.com");
 		click(home.submitEmail);
-		//waitForElement(home.password);
+		
 		
 		setvalue(home.password,"Bmohan@1506");
 
@@ -106,8 +114,8 @@ private static final org.apache.logging.log4j.Logger log =LogManager.getLogger(B
 //setvalue(home.lastname,data.get("last"));
 //setvalue(home.email,data.get("email"));
 //setvalue(home.fbpassword,data.get("password"));
-////printElementText(home.hotelnames);
-
+//printElementText(home.hotelnames);
+//
 
 	
 	

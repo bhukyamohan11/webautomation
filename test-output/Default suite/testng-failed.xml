@@ -6,8 +6,8 @@
       <class name="testmethods.BirthdayTest">
         <methods>
           <include name="aftermethod"/>
-          <include name="facebook" invocation-numbers="0"/>
           <include name="setup"/>
+          <include name="bookingLogin"/>
           <include name="closeDriver"/>
         </methods>
       </class> <!-- testmethods.BirthdayTest -->

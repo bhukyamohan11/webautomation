@@ -48,6 +48,7 @@ package pageobjects;
               
               @FindBy(xpath="//input[@name='reg_passwd__']")
               public WebElement fbpassword;
+
 	}
 
 
